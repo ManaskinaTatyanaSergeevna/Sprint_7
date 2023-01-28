@@ -56,7 +56,7 @@ public class CourierLoginTest {
         courier.setLogin("ninja1453");
         Response response = clientStep.sendPostRequestApiV1CourierLogin(courier);
         response.then().log().all()
-                .assertThat().body("message", Matchers.is("Недостаточно данных для входа")).and().statusCode(400);
+                .assertThat().statusCode(400).and().body("message", Matchers.is("Недостаточно данных для входа"));
 
     }
 
